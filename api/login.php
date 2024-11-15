@@ -1,12 +1,11 @@
 <?php
 
-
-include $_SERVER["DOCUMENT_ROOT"] . "/core/init.php";
-
-$email = $password = "";
-$username_err = $password_err = $login_err = "";
-
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    include $_SERVER["DOCUMENT_ROOT"] . "/core/init.php";
+
+    $email = $password = "";
+    $username_err = $password_err = $login_err = "";
+
     if (empty(trim($_POST['email']))) {
         $username_err = true;
     } else {
@@ -42,4 +41,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     }
 
     echo json_encode($res);
+}else{
+    header("location: /404");
 }

@@ -1,11 +1,11 @@
-<?php
-include("core/init.php");
+<?php 
+include("core/init.php"); 
 ?>
 <!DOCTYPE html>
 <html lang="hu">
 
 <head>
-    <meta charset="utf-8">
+<meta charset="utf-8">
     <title>Országos Meteorológiai Szolgálat</title>
     <meta name="keywords" content="MBBE" />
     <meta name="description" content="OMSZ - Országos Meteorológiai Szolgálat">
@@ -60,13 +60,11 @@ include("core/init.php");
                         <!-- Experts -->
                         <div class="panel-box">
                             <div class="titles">
-                                <h4>Belépés</h4>
+                                <h4>Regisztrálás</h4>
                             </div>
 
                             <div class="row">
                                 <div class="col mb-5">
-
-
                                     <div class="row pt-2">
                                         <div class="col text-center">
                                             <span class="h1 fw-bold mb-0">Országos Meteorológiai Szolgálat</span>
@@ -74,30 +72,41 @@ include("core/init.php");
                                     </div>
                                     <div class="row g-0">
                                         <div class="col-md-3 col-lg-3 p-1 d-flex align-items-center justify-content-center">
-                                            <img src="/img/icons/favicon.ico" alt="Országos Meteorológiai Szolgálat" title="Országos Meteorológiai Szolgálat" class="rounded mx-auto d-block" style="max-height: 100%;">
+                                        <img src="/img/icons/favicon.ico" alt="Országos Meteorológiai Szolgálat" title="Országos Meteorológiai Szolgálat" class="rounded mx-auto d-block" style="max-height: 100%;">
                                         </div>
                                         <div class="col-md-6 col-lg-6 d-flex align-items-center">
                                             <div class="card-body p-2  text-black">
-                                                <form method="post" id="loginForm">
-                                                    <div class="form-outline mb-4">
-                                                        <label class="form-label" for="email">Email-cím</label>
-                                                        <input type="email" id="email" name="email" class="form-control form-control-lg">
-
+                                                <form method="POST" id="registerForm">
+                                                    <div class="form-row">
+                                                        <div class="form-group col-md-6">
+                                                            <label for="sureName">Vezetéknév</label>
+                                                            <input type="text" class="form-control" id="sureName" name="sureName" placeholder="Vezetéknév" autocomplete="family-name">
+                                                        </div>
+                                                        <div class="form-group col-md-6">
+                                                            <label for="firstName">Keresztnév</label>
+                                                            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Keresztnév" autocomplete="given-name">
+                                                        </div>
                                                     </div>
-                                                    <div class="form-outline mb-4">
-                                                        <label class="form-label" for="password">Jelszó</label>
-                                                        <input type="password" id="password" name="password" class="form-control form-control-lg">
-
+                                                    <div class="form-group">
+                                                        <label for="email">Email cím</label>
+                                                        <input type="email" class="form-control" id="email" name="email" placeholder="Email" autocomplete="email">
                                                     </div>
-                                                    <div class="pt-1 mb-4 text-center">
-                                                        <input class="btn btn-primary btn-lg btn-block" type="submit" id="login" value="Belépés">
-                                                        <p class="pt-3" style="color: #01d099;">Nincs még fiókod? <a href="regisztracio" style="color: #01d099;">Regisztrálj itt!</a></p>
+                                                    <div class="form-group">
+                                                        <label for="password">Jelszó</label>
+                                                        <input type="password" class="form-control" id="password" name="password" placeholder="Jelszó" autocomplete="off">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="confirm_password">Jelszó megerősítés</label>
+                                                        <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Jelszó megerősítés" autocomplete="off">
+                                                    </div>
+                                                    <div class="row align-items-center justify-content-center">
+                                                        <button type="submit" class="btn btn-primary">Regisztrálás</button>
                                                     </div>
                                                 </form>
                                             </div>
                                         </div>
                                         <div class="col-md-3 col-lg-3 p-1 d-flex align-items-center justify-content-center">
-                                            <img src="/img/icons/spaceweather.ico" alt="Spaceweather" title="Spaceweather" class="rounded mx-auto d-block" style="max-height: 70%;">
+                                        <img src="/img/icons/spaceweather.ico" alt="Spaceweather" title="Spaceweather" class="rounded mx-auto d-block" style="max-height: 70%;">
                                         </div>
                                     </div>
 
@@ -106,11 +115,16 @@ include("core/init.php");
                             <!-- End Experts -->
                         </div>
                         <!-- End content Left -->
+
+
                     </div>
                 </div>
                 <!-- End Content Central -->
+
         </section>
         <!-- End Section Area -  Content Central -->
+
+
 
         <?php include "components/footer.php"; ?>
     </div>
@@ -129,8 +143,8 @@ include("core/init.php");
     <script type="text/javascript" src="assets/js/theme-main.js"></script>
     <!-- admin.js -->
     <script type="text/javascript" src="assets/js/admin.js"></script>
-    <!-- login.js-->
-    <script type="text/javascript" src="assets/js/login.js"></script>
+    <!-- register.js-->
+    <script type="text/javascript" src="assets/js/register.js"></script>
     <!-- SwAlert.js-->
     <script type="text/javascript" src="assets/js/swalert.js"></script>
     <!-- ======================= End JQuery libs =========================== -->

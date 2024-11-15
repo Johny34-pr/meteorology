@@ -1,5 +1,5 @@
 ErrorDocument 404 /page-404.php
-ErrorDocument 500 /error/500.html
+ErrorDocument 500 /page-500.html
 
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
@@ -8,7 +8,9 @@ RewriteRule ^kapcsolat?$ /contact.php
 RewriteRule ^kijelentkezes?$ /logout.php
 RewriteRule ^bejelentkezes?$ /login.php
 RewriteRule ^regisztracio?$ /register.php
-RewriteRule ^admin/?$ /admin.php
-RewriteRule ^admin/measurement-management?$ /admin/measurement-management.php
-
-
+RewriteRule ^vezerlopult?$ /admin.php
+RewriteRule ^admin/felhasznalok?$ /admin/user-management.php
+RewriteRule ^admin/meresek?$ /admin/measurement-management.php
+RewriteRule ^admin/allomasok?$ /admin/station-management.php
+RewriteRule ^admin/muszerek?$ /admin/instrument-management.php
+RewriteRule ^404?$ /page-404.php

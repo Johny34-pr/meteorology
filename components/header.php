@@ -1,9 +1,7 @@
 <?php
 
 // Sample user session data
-$user = isset($_SESSION["name"]) ? $_SESSION["name"] : false;
-$avatar = "/api/getProfilePicture.php?id=" . (isset($_SESSION["id"]) ? $_SESSION["id"] : "0");
-$rank = isset($_SESSION["rank"]) ? $_SESSION["rank"] : 0;
+$user = isset($_SESSION["username"]) ? $_SESSION["username"] : false;
 
 // Define the menu structure as an array
 $menu = [
@@ -84,14 +82,7 @@ $menu = [
             </a>
             <div class='sf-mega'>
                 <ul>
-                    <li><a href='/profilom'>Profil</a></li>";
-
-                        // If user has admin rank (rank >= 2), show admin panel link
-                        if ($rank >= 2) {
-                            echo "<li><a href='/admin'>ADMIN PANEL</a></li>";
-                        }
-
-                        echo "<li><a href='/kijelentkezes'>Kilépés</a></li>
+                    <li><a href='/profilom'>Profil</a></li><li><a href='/vezerlopult'>ADMIN PANEL</a></li><li><a href='/kijelentkezes'>Kilépés</a></li>
                 </ul>
             </div>
         </li>";

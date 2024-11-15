@@ -6,18 +6,17 @@ include("core/init.php");
 
 <head>
     <meta charset="utf-8">
-    <title>Magyar Bábus Biliárd Egyesület</title>
+    <title>Országos Meteorológiai Szolgálat</title>
     <meta name="keywords" content="MBBE" />
-    <meta name="description" content="MBBE - Magyar Bábus Biliárd Egyesület">
-    <meta name="author" content="MBBE">
+    <meta name="description" content="OMSZ - Országos Meteorológiai Szolgálat">
+    <meta name="author" content="OMSZ">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="/assets/css/main.css" rel="stylesheet" media="screen">
-    <link href="/assets/css/admin.css" rel="stylesheet" media="screen">
-    <link rel="shortcut icon" href="/img/icons/favicon.ico">
-    <link rel="apple-touch-icon" href="/img/icons/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/img/icons/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/img/icons/apple-touch-icon-114x114.png">
-    <link rel="stylesheet" href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css'>
+    <link href="assets/css/main.css" rel="stylesheet" media="screen">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/icons/apple-touch-icon.png?v=2bBRvozOrO">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/icons/favicon-32x32.png?v=2bBRvozOrO">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/icons/favicon-16x16.png?v=2bBRvozOrO">
+    <link rel="shortcut icon" href="img/icons/favicon.ico?v=2bBRvozOrO">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 </head>
 
@@ -40,83 +39,38 @@ include("core/init.php");
                     <div class="col-lg-12">
                         <div class="row text-center justify-content-center pb-5">
                             <div class="col-sm-8 col-md-6 col-lg-3 p-4">
-                                <a href="/admin/user-management">
+                                <a href="/admin/felhasznalok">
                                     <button class="btn btn-primary w-100 py-5">
                                         <i class="bx bxs-user bx-md"></i>
                                         <br>
-                                        Felhasználókezelés
+                                        Felhasználók
                                     </button>
                                 </a>
                             </div>
                             <div class="col-sm-8 col-md-6 col-lg-3 p-4">
-                                <a href="/admin/article-management">
-                                    <button class="btn btn-primary w-100 py-5">
-                                        <i class='bx bx-news bx-md'></i>
-                                        <br>
-                                        Cikkek-kezelése
-                                    </button>
-                                </a>
-                            </div>
-                            <div class="col-sm-8 col-md-6 col-lg-3 p-4">
-                                <a href="/admin/game-management">
-                                    <button class="btn btn-primary w-100 py-5">
-                                        <i class='bx bx-compass bx-md'></i>
-                                        <br>
-                                        Versenykezelés
-                                    </button>
-                                </a>
-                            </div>
-                            <div class="col-sm-8 col-md-6 col-lg-3 p-4">
-                                <a href="/admin/apply-management">
-                                    <button class="btn btn-primary w-100 py-5">
-                                        <i class='bx bx-briefcase bx-md'></i>
-                                        <br>
-                                        Jelentkezéskezelés
-                                    </button>
-                                </a>
-                            </div>
-                            <div class="col-sm-8 col-md-6 col-lg-3 p-4">
-                                <a href="/admin/player-management">
+                                <a href="/admin/meresek">
                                     <button class="btn btn-primary w-100 py-5">
                                         <i class="bx bxs-user bx-md"></i>
                                         <br>
-                                        Játékoskezelés
+                                        Mérés rögzítése
                                     </button>
                                 </a>
                             </div>
                             <div class="col-sm-8 col-md-6 col-lg-3 p-4">
-                                <a href="/admin/report-update">
+                                <a href="/admin/allomasok">
                                     <button class="btn btn-primary w-100 py-5">
-                                        <i class='bx bx-notepad bx-md'></i>
+                                        <i class="bx bxs-user bx-md"></i>
                                         <br>
-                                        Jegyzőkönyvszerkesztő frissítés
+                                        Állomások
                                     </button>
                                 </a>
                             </div>
                             <div class="col-sm-8 col-md-6 col-lg-3 p-4">
-                                <a href="/admin/gallery-management">
+                                <a href="/admin/muszerek">
                                     <button class="btn btn-primary w-100 py-5">
-                                        <i class='bx bx-images bx-md'></i>
+                                        <i class="bx bxs-user bx-md"></i>
                                         <br>
-                                        Galéria kezelés
-                                    </button>
-                                </a>
-                            </div>
-                            <div class="col-sm-8 col-md-6 col-lg-3 p-4">
-                                <a href="/admin/documents-management">
-                                    <button class="btn btn-primary w-100 py-5">
-                                        <i class='bx bx-file bx-md'></i>
-                                        <br>
-                                        Dokumentumok kezelése
-                                    </button>
-                                </a>
-                            </div>
-                            <div class="col-sm-8 col-md-6 col-lg-3 p-4">
-                                <a href="/admin/site-management">
-                                    <button class="btn btn-primary w-100 py-5">
-                                        <i class='bx bx-home bx-md'></i>
-                                        <br>
-                                        Főoldal kezelése
+                                        Mérőeszközök
                                     </button>
                                 </a>
                             </div>
