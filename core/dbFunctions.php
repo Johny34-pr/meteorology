@@ -61,10 +61,10 @@ class MySql extends db_config
     //     $this->db_disconnect();
     //     return $this->dataSet;
     // }
-    // function select_all_order($dbName, $tableName, $fields, $field = "id", $order = "ASC", $limit = null)
+    // function select_all_order($tableName, $fields, $field = "id", $order = "ASC", $limit = null)
     // {
     //     $this->db_connect();
-    //     $field_value = "SELECT {$fields} FROM {$dbName}.{$tableName} ORDER BY {$field} {$order}";
+    //     $field_value = "SELECT {$fields} FROM {$tableName} ORDER BY {$field} {$order}";
     //     if ($limit != null) {
     //         $this->sqlQuery = $this->connection->prepare($field_value . " LIMIT {$limit};");
     //     } else {
@@ -213,4 +213,38 @@ class MySql extends db_config
 
     //     return $result;
     // }
+    function select_operators($field = "operator_id", $order = "ASC", $limit = null)
+    {
+        $this->db_connect();
+
+        $this->sqlQuery = file_get_contents($_SERVER["DOCUMENT_ROOT"] . "/core/sql/users.sql");
+
+        $sqlParams = array(
+            "{field}" => $field,
+            "{order}" => $order
+        );
+
+        foreach ($sqlParams as $placeholder => $value) {
+            $this->sqlQuery = str_replace($placeholder, $value, $this->sqlQuery);
+        }
+
+        if ($limit != null) {
+            $this->sqlQuery = $this->connection->prepare($this->sqlQuery . " LIMIT {$limit};");
+        } else {
+            $this->sqlQuery = $this->connection->prepare($this->sqlQuery . ";");
+        }
+
+        $this->sqlQuery->execute();
+        $this->result = $this->sqlQuery->get_result();
+        $this->sqlQuery->close();
+        if ($this->result->num_rows > 0) {
+            $i = 0;
+            while ($row = $this->result->fetch_assoc()) {
+                $this->dataSet[$i] = $row;
+                $i++;
+            }
+        }
+        $this->db_disconnect();
+        return $this->dataSet;
+    }
 }

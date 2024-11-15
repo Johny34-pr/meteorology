@@ -70,9 +70,8 @@ if ($_SESSION['loggedin']) {
                                         <th class="text-center">#</th>
                                         <th class="text-center">Név</th>
                                         <th class="text-center">E-mail cím</th>
+                                        <th class="text-center">Állomás</th>
                                         <th class="text-center">Regisztráció ideje</th>
-                                        <th class="text-center">Rang</th>
-                                        <th class="text-center">Státusz</th>
                                         <th class="text-center">Módosítás</th>
                                     </tr>
                                 </thead>
