@@ -4,38 +4,11 @@ ErrorDocument 500 /error/500.html
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 
-RewriteRule ^(.*)\.\d+\.(css|js)$ $1.$2 [L]
-RewriteRule ^klubok?$ /teams.php
-RewriteRule ^jatekosok?$ /players.php
-RewriteRule ^admin?$ /php/admin/admin.php
-RewriteRule ^eredmenyek?$ /results.php
-RewriteRule ^ranglista?$ /ranklist.php
-RewriteRule ^naptar?$ /calendar.php
 RewriteRule ^kapcsolat?$ /contact.php
-RewriteRule ^jatekos/([0-9]+)$ /player.php?id=$1 [L,QSA]
-RewriteRule ^klub/([0-9]+)$ /club.php?id=$1 [L,QSA]
-RewriteRule ^hir/([0-9]+)/([a-z0-9\-]+)$ /news.php?id=$1 [L,QSA]
-RewriteRule ^hirek?$ /newsfeed.php
-RewriteRule ^profilom?$ /profile.php
 RewriteRule ^kijelentkezes?$ /logout.php
 RewriteRule ^bejelentkezes?$ /login.php
 RewriteRule ^regisztracio?$ /register.php
 RewriteRule ^admin/?$ /admin.php
-RewriteRule ^galeria/?$ /gallery.php
-RewriteRule ^dokumentumok/?$ /documents.php
-RewriteRule ^nevezes/?$ /apply.php
-RewriteRule ^admin/user-management?$ /admin/user-management.php
-RewriteRule ^admin/site-management?$ /admin/site-management.php
-RewriteRule ^admin/documents-management?$ /admin/documents-management.php
-RewriteRule ^admin/gallery-management?$ /admin/gallery-management.php
-RewriteRule ^admin/article-management?$ /admin/article-management.php
-RewriteRule ^admin/article-add?$ /admin/article-add.php
-RewriteRule ^admin/game-management?$ /admin/game-management.php
-RewriteRule ^admin/apply-management?$ /admin/apply-management.php
-RewriteRule ^admin/player-management?$ /admin/player-management.php
-RewriteRule ^admin/report-update?$ /admin/report-update.php
-RewriteRule ^admin/user-add?$ /admin/user-add.php
-RewriteRule ^admin/game-add?$ /admin/game-add.php
-RewriteRule ^admin/apply-add?$ /admin/apply-add.php
+RewriteRule ^admin/measurement-management?$ /admin/measurement-management.php
 
 

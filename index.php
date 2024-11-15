@@ -7,18 +7,17 @@ include("core/init.php");
 
 <head>
     <meta charset="utf-8">
-    <title>Magyar Bábus Biliárd Egyesület</title>
+    <title>Országos Meteorológiai Szolgálat</title>
     <meta name="keywords" content="MBBE" />
-    <meta name="description" content="MBBE - Magyar Bábus Biliárd Egyesület">
-    <meta name="author" content="MBBE">
+    <meta name="description" content="OMSZ - Országos Meteorológiai Szolgálat">
+    <meta name="author" content="OMSZ">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="/assets/css/main.css" rel="stylesheet" media="screen">
-    <link rel="shortcut icon" href="/img/icons/favicon.ico">
-    <link rel="apple-touch-icon" href="/img/icons/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/img/icons/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/img/icons/apple-touch-icon-114x114.png">
-    <script type="text/javascript" src="/assets/js/jquery.js"></script>
-    <script type="text/javascript" src="/assets/js/theme-scripts.js"></script>
+    <link href="assets/css/main.css" rel="stylesheet" media="screen">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/icons/apple-touch-icon.png?v=2bBRvozOrO">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/icons/favicon-32x32.png?v=2bBRvozOrO">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/icons/favicon-16x16.png?v=2bBRvozOrO">
+    <link rel="shortcut icon" href="img/icons/favicon.ico?v=2bBRvozOrO">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
@@ -27,12 +26,38 @@ include("core/init.php");
         <div class="hero-header">
             <!-- Hero Slider-->
             <div id="hero-slider" class="hero-slider">
-                    <div class="item-slider" style="background:url('');">
+                    <div class="item-slider" style="background:url('img/slide/1.jpg');">
                         <div class="container">
                             <div class="row align-items-center">
                                 <div class="col-lg-7">
                                     <div class="info-slider">
-                                        <h1>Országos Meteorológiai szolgálat</h1>
+                                        <h1>Országos Meteorológiai Szolgálat</h1>
+                                        <p>Az OMSZ időjárás-jelentéseket, országos előrejelzéseket, figyelmeztető előrejelzéseket készít. A hivatalos weboldalukon olvashatunk Magyarország éghajlatáról, időjárási visszatekintőben tájékozódhatunk az éghajlati változásokról, a külföldre utazóknak naprakész friss információk állnak rendelkezésre a célországok időjárásáról. </p>
+                                        <a href="https://hu.wikipedia.org/wiki/HungaroMet" class="btn-iw outline">Olvass tovább <i class="fa fa-long-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-slider" style="background:url('img/slide/2.jpg');">
+                        <div class="container">
+                            <div class="row align-items-center">
+                                <div class="col-lg-7">
+                                    <div class="info-slider">
+                                        <h1>Országos Meteorológiai Szolgálat</h1>
+                                        <p>Az OMSZ időjárás-jelentéseket, országos előrejelzéseket, figyelmeztető előrejelzéseket készít. A hivatalos weboldalukon olvashatunk Magyarország éghajlatáról, időjárási visszatekintőben tájékozódhatunk az éghajlati változásokról, a külföldre utazóknak naprakész friss információk állnak rendelkezésre a célországok időjárásáról. </p>
+                                        <a href="https://hu.wikipedia.org/wiki/HungaroMet" class="btn-iw outline">Olvass tovább <i class="fa fa-long-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-slider" style="background:url('img/slide/3.jpg');">
+                        <div class="container">
+                            <div class="row align-items-center">
+                                <div class="col-lg-7">
+                                    <div class="info-slider">
+                                        <h1>Országos Meteorológiai Szolgálat</h1>
                                         <p>Az OMSZ időjárás-jelentéseket, országos előrejelzéseket, figyelmeztető előrejelzéseket készít. A hivatalos weboldalukon olvashatunk Magyarország éghajlatáról, időjárási visszatekintőben tájékozódhatunk az éghajlati változásokról, a külföldre utazóknak naprakész friss információk állnak rendelkezésre a célországok időjárásáról. </p>
                                         <a href="https://hu.wikipedia.org/wiki/HungaroMet" class="btn-iw outline">Olvass tovább <i class="fa fa-long-arrow-right"></i></a>
                                     </div>

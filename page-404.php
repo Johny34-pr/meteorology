@@ -2,23 +2,18 @@
 <html lang="hu">
 
 <head>
-    <!-- Basic -->
     <meta charset="utf-8">
-    <title>Magyar Bábus Biliárd Egyesület</title>
+    <title>Országos Meteorológiai Szolgálat</title>
     <meta name="keywords" content="MBBE" />
-    <meta name="description" content="MBBE - Magyar Bábus Biliárd Egyesület">
-    <meta name="author" content="MBBE">
-
-    <!-- Mobile Metas -->
+    <meta name="description" content="OMSZ - Országos Meteorológiai Szolgálat">
+    <meta name="author" content="OMSZ">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Theme CSS -->
-    <link href="/assets/css/main.css" rel="stylesheet" media="screen">
-    <!-- Favicons -->
-    <link rel="shortcut icon" href="/img/icons/magyar.png">
-    <!-- <link rel="apple-touch-icon" href="img/icons/apple-touch-icon.png">
-        <link rel="apple-touch-icon" sizes="72x72" href="img/icons/apple-touch-icon-72x72.png">
-        <link rel="apple-touch-icon" sizes="114x114" href="img/icons/apple-touch-icon-114x114.png"> -->
-    <link rel="stylesheet" href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css'>
+    <link href="assets/css/main.css" rel="stylesheet" media="screen">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/icons/apple-touch-icon.png?v=2bBRvozOrO">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/icons/favicon-32x32.png?v=2bBRvozOrO">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/icons/favicon-16x16.png?v=2bBRvozOrO">
+    <link rel="shortcut icon" href="img/icons/favicon.ico?v=2bBRvozOrO">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
@@ -63,10 +58,6 @@
                 </div>
             </section>
             <!-- End Content Central -->
-
-            <!-- Newsletter -->
-            <?php include "components/newsletter.php"; ?>
-            <!-- End newsletter -->
         </section>
         <!-- End Section Area -  Content Central -->
 
@@ -78,12 +69,7 @@
 
     <!-- ======================= JQuery libs =========================== -->
     <!-- jQuery local old-->
-    <script type="text/javascript" src="/assets/js/jquery_old.js"></script>
-    <!-- jQuery local new-->
     <script type="text/javascript" src="/assets/js/jquery.js"></script>
-    <script>
-        var $j = jQuery.noConflict(true);
-    </script>
     <!-- popper.js-->
     <script type="text/javascript" src="/assets/js/popper.min.js"></script>
     <!-- bootstrap.min.js-->

@@ -6,16 +6,16 @@ include("core/init.php");
 
 <head>
     <meta charset="utf-8">
-    <title>Magyar Bábus Biliárd Egyesület</title>
+    <title>Országos Meteorológiai Szolgálat</title>
     <meta name="keywords" content="MBBE" />
-    <meta name="description" content="MBBE - Magyar Bábus Biliárd Egyesület">
-    <meta name="author" content="MBBE">
+    <meta name="description" content="OMSZ - Országos Meteorológiai Szolgálat">
+    <meta name="author" content="OMSZ">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="assets/css/main.css" rel="stylesheet" media="screen">
-    <link rel="shortcut icon" href="img/icons/favicon.ico">
-    <link rel="apple-touch-icon" href="img/icons/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="img/icons/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="img/icons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/icons/apple-touch-icon.png?v=2bBRvozOrO">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/icons/favicon-32x32.png?v=2bBRvozOrO">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/icons/favicon-16x16.png?v=2bBRvozOrO">
+    <link rel="shortcut icon" href="img/icons/favicon.ico?v=2bBRvozOrO">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 </head>
@@ -30,13 +30,13 @@ include("core/init.php");
         <!-- End Section Title -->
 
         <!-- Section Area - Content Central -->
-        <div class="section-title" style="background-image:url('/img/karambolbiliard.jpg');background-attachment: fixed;">
+        <div class="section-title" style="background-image:url('/img/slide/2.jpg');background-attachment: fixed;">
 
 
             <div class="container">
                 <div class="row">
                     <div class="col-md-8">
-                        <h1>Belépés</h1>
+                        <h1>Admin</h1>
                     </div>
 
                 </div>
@@ -70,12 +70,12 @@ include("core/init.php");
 
                                     <div class="row pt-2">
                                         <div class="col text-center">
-                                            <span class="h1 fw-bold mb-0">Magyar Bábus Biliárd Egyesület</span>
+                                            <span class="h1 fw-bold mb-0">Országos Meteorológiai Szolgálat</span>
                                         </div>
                                     </div>
                                     <div class="row g-0">
                                         <div class="col-md-3 col-lg-3 p-1 d-flex align-items-center justify-content-center">
-                                            <img src="/img/magyar.png" alt="Magyar Bábus Biliárd" title="Magyar Bábus Biliárd" class="rounded mx-auto d-block" style="max-height: 100%;">
+                                            <img src="/img/icons/favicon.ico" alt="Országos Meteorológiai Szolgálat" title="Országos Meteorológiai Szolgálat" class="rounded mx-auto d-block" style="max-height: 100%;">
                                         </div>
                                         <div class="col-md-6 col-lg-6 d-flex align-items-center">
                                             <div class="card-body p-2  text-black">
@@ -92,16 +92,13 @@ include("core/init.php");
                                                     </div>
                                                     <div class="pt-1 mb-4 text-center">
                                                         <input class="btn btn-primary btn-lg btn-block" type="submit" id="login" value="Belépés">
-                                                        <a class="small text-muted" href="#!">Elfelejtetted a jelszavad?</a>
                                                         <p class="pt-3" style="color: #01d099;">Nincs még fiókod? <a href="register.php" style="color: #01d099;">Regisztrálj itt!</a></p>
-                                                        <a class="small text-muted p-0 m-0" href="#!">Terms of use.</a>
-                                                        <a class="small text-muted" href="#!">Privacy policy</a>
                                                     </div>
                                                 </form>
                                             </div>
                                         </div>
                                         <div class="col-md-3 col-lg-3 p-1 d-flex align-items-center justify-content-center">
-                                            <img src="/img/eukegel.png" alt="Eurokegel" title="Eurokegel" class="rounded mx-auto d-block" style="max-height: 70%;">
+                                            <img src="/img/icons/spaceweather.ico" alt="Spaceweather" title="Spaceweather" class="rounded mx-auto d-block" style="max-height: 70%;">
                                         </div>
                                     </div>
 
@@ -110,16 +107,11 @@ include("core/init.php");
                             <!-- End Experts -->
                         </div>
                         <!-- End content Left -->
-
-
                     </div>
                 </div>
                 <!-- End Content Central -->
-
         </section>
         <!-- End Section Area -  Content Central -->
-
-
 
         <?php include "components/footer.php"; ?>
     </div>
