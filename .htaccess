@@ -3,14 +3,16 @@ ErrorDocument 500 /page-500.html
 
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
 
-RewriteRule ^kapcsolat?$ /contact.php
-RewriteRule ^kijelentkezes?$ /logout.php
-RewriteRule ^bejelentkezes?$ /login.php
-RewriteRule ^regisztracio?$ /register.php
-RewriteRule ^vezerlopult?$ /admin.php
-RewriteRule ^admin/felhasznalok?$ /admin/user-management.php
-RewriteRule ^admin/meresek?$ /admin/measurement-management.php
-RewriteRule ^admin/allomasok?$ /admin/station-management.php
-RewriteRule ^admin/muszerek?$ /admin/instrument-management.php
-RewriteRule ^404?$ /page-404.php
+RewriteRule ^(css|js|images|assets)/ - [L]
+
+RewriteRule ^kapcsolat/?$ /contact.php [L]
+RewriteRule ^kijelentkezes/?$ /logout.php [L]
+RewriteRule ^bejelentkezes/?$ /login.php [L]
+RewriteRule ^regisztracio/?$ /register.php [L]
+RewriteRule ^admin/?$ /admin.php [L]
+RewriteRule ^admin/felhasznalok/?$ /admin/user-management.php [L]
+RewriteRule ^admin/meresek/?$ /admin/measure-management.php [L]
+RewriteRule ^admin/allomasok/?$ /admin/station-management.php [L]
+RewriteRule ^admin/muszerek/?$ /admin/instrument-management.php [L]

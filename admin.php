@@ -11,12 +11,13 @@ include("core/init.php");
     <meta name="description" content="OMSZ - Országos Meteorológiai Szolgálat">
     <meta name="author" content="OMSZ">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="assets/css/main.css" rel="stylesheet" media="screen">
-    <link rel="apple-touch-icon" sizes="120x120" href="img/icons/apple-touch-icon.png?v=2bBRvozOrO">
-    <link rel="icon" type="image/png" sizes="32x32" href="img/icons/favicon-32x32.png?v=2bBRvozOrO">
-    <link rel="icon" type="image/png" sizes="16x16" href="img/icons/favicon-16x16.png?v=2bBRvozOrO">
-    <link rel="shortcut icon" href="img/icons/favicon.ico?v=2bBRvozOrO">
+    <link href="/assets/css/main.css" rel="stylesheet" media="screen">
+    <link rel="apple-touch-icon" sizes="120x120" href="/img/icons/apple-touch-icon.png?v=2bBRvozOrO">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/icons/favicon-32x32.png?v=2bBRvozOrO">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/icons/favicon-16x16.png?v=2bBRvozOrO">
+    <link rel="shortcut icon" href="/img/icons/favicon.ico?v=2bBRvozOrO">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
 </head>
 
@@ -41,7 +42,7 @@ include("core/init.php");
                             <div class="col-sm-8 col-md-6 col-lg-3 p-4">
                                 <a href="/admin/felhasznalok">
                                     <button class="btn btn-primary w-100 py-5">
-                                        <i class="bx bxs-user bx-md"></i>
+                                        <i class="fs-3 fa-solid fa-user"></i>
                                         <br>
                                         Felhasználók
                                     </button>
@@ -50,7 +51,7 @@ include("core/init.php");
                             <div class="col-sm-8 col-md-6 col-lg-3 p-4">
                                 <a href="/admin/meresek">
                                     <button class="btn btn-primary w-100 py-5">
-                                        <i class="bx bxs-user bx-md"></i>
+                                        <i class="fs-3 fa-solid fa-cloud"></i>
                                         <br>
                                         Mérés rögzítése
                                     </button>
@@ -59,7 +60,7 @@ include("core/init.php");
                             <div class="col-sm-8 col-md-6 col-lg-3 p-4">
                                 <a href="/admin/allomasok">
                                     <button class="btn btn-primary w-100 py-5">
-                                        <i class="bx bxs-user bx-md"></i>
+                                        <i class="fs-3 fa-solid fa-satellite-dish"></i>
                                         <br>
                                         Állomások
                                     </button>
@@ -68,7 +69,7 @@ include("core/init.php");
                             <div class="col-sm-8 col-md-6 col-lg-3 p-4">
                                 <a href="/admin/muszerek">
                                     <button class="btn btn-primary w-100 py-5">
-                                        <i class="bx bxs-user bx-md"></i>
+                                        <i class="fs-3 fa-solid fa-temperature-half"></i>
                                         <br>
                                         Mérőeszközök
                                     </button>
