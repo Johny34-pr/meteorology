@@ -26,10 +26,10 @@ class MySql extends db_config
         $this->sqlQuery = NULL;
         $this->result;
     }
-    function select_all($dbName, $tableName, $field = "id", $order = "ASC")
+    function select_all($tableName, $field = "id", $order = "ASC")
     {
         $this->db_connect();
-        $this->sqlQuery = $this->connection->prepare("SELECT * FROM {$dbName}.{$tableName} ORDER BY {$field} {$order};");
+        $this->sqlQuery = $this->connection->prepare("SELECT * FROM {$tableName} ORDER BY {$field} {$order};");
         $this->sqlQuery->execute();
         $this->result = $this->sqlQuery->get_result();
         $this->sqlQuery->close();
@@ -84,9 +84,8 @@ class MySql extends db_config
         $this->db_disconnect();
         return $this->dataSet;
     }
-    function select_where($dbName, $tableName, $condition, $value, $fields = "*")
+    function select_where($tableName, $condition, $value, $fields = "*")
     {
-        $this->dbName = $dbName;
         $this->db_connect();
         $this->sqlQuery = $this->connection->prepare("SELECT {$fields} FROM {$tableName} WHERE BINARY {$condition} = ?;");
         $this->sqlQuery->bind_param('s', $value);

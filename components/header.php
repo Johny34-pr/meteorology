@@ -80,7 +80,7 @@ $menu = [
                     if ($user) {
                         echo "<li class='float-right'>
             <a href='#'>
-                <img src='img/user/default.jpg' alt='Avatar' class='img-fluid rounded-circle' style='width: 30px; height: 30px;'> $user
+                <img src='img/user/avatar.jpg' alt='Avatar' class='img-fluid rounded-circle' style='width: 30px; height: 30px;'> $user
             </a>
             <div class='sf-mega'>
                 <ul>

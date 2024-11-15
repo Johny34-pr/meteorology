@@ -8,6 +8,6 @@ class db_config
         $this->serverName = "localhost";
         $this->userName = "root";
         $this->password = "";
-        $this->dbName = "astrology";
+        $this->dbName = "meteorology";
     }
 }

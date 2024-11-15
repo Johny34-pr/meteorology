@@ -13,9 +13,8 @@ $('#loginForm').on("submit", function (event) {
         url: "/api/login.php",
         method: "post",
         data: {
-          token: "loginUserFromSite8365",
           email: email,
-          password: pass,
+          password: pass
         },
       });
 
