@@ -90,11 +90,14 @@ class MySql extends db_config
         $this->sqlQuery = $this->connection->prepare("SELECT {$fields} FROM {$tableName} WHERE BINARY {$condition} = ?;");
         $this->sqlQuery->bind_param('s', $value);
         $this->sqlQuery->execute();
+
         $this->result = $this->sqlQuery->get_result();
-        $this->sqlQuery->close();
-        if ($this->result->num_rows > 0) {
-            $this->dataSet = $this->result->fetch_assoc();
+        if ($this->result && $this->result->num_rows > 0) {
+            while ($row = $this->result->fetch_assoc()) {
+                $this->dataSet[] = $row;
+            }
         }
+        $this->sqlQuery->close();
         $this->db_disconnect();
         return $this->dataSet;
     }
@@ -135,89 +138,106 @@ class MySql extends db_config
         $this->db_disconnect();
         return $result;
     }
-    // function update_where($dbName, $tableName, $data, $conditionField, $conditionValue)
-    // {
-    //     $this->db_connect();
+    function update_operator($operators)
+    {
+        $this->db_connect();
 
-    //     $setValues = "";
-    //     $types = "";
-    //     $bindParams = array();
-    //     $i = 0;
-    //     foreach ($data as $key => $value) {
-    //         if ($i > 0) {
-    //             $setValues .= ", ";
-    //         }
-    //         $setValues .= "$key = ?";
-    //         if (is_string($value)) {
-    //             $types .= "s";
-    //         } else if (is_int($value)) {
-    //             $types .= "i";
-    //         }
-    //         $bindParams[] = &$data[$key];
-    //         $i++;
-    //     }
+        foreach ($operators as $operator) {
 
-    //     $statement = $this->connection->prepare("UPDATE {$dbName}.{$tableName} SET {$setValues} WHERE {$conditionField} = ?");
+            $updateFields = $operator['updateFields'];
+            $conditionName = $operator['name'];
+            $conditionRegTime = $operator['reg_time'];
 
-    //     if (!$statement) {
-    //         return false;
-    //     }
+            // Készítse elő az `UPDATE` utasításhoz szükséges mezőket
+            $setValues = "";
+            $types = "";
+            $bindParams = [];
+            $i = 0;
 
-    //     if (is_string($conditionValue)) {
-    //         $types .= "s";
-    //     } else if (is_int($conditionValue)) {
-    //         $types .= "i";
-    //     }
-    //     $bindParams[] = &$conditionValue;
-    //     $bindParams = array_merge(array($types), $bindParams);
-    //     call_user_func_array(array($statement, 'bind_param'), $bindParams);
+            foreach ($updateFields as $key => $value) {
+                if ($i > 0) {
+                    $setValues .= ", ";
+                }
+                $setValues .= "$key = ?";
+                $types .= is_string($value) ? "s" : (is_int($value) ? "i" : "d"); // String, Integer vagy Double
+                $bindParams[] = $value;
+                $i++;
+            }
 
-    //     $result = $statement->execute();
-    //     $statement->close();
+            // Az elsődleges kulcs feltételei (name és reg_time)
+            $query = "UPDATE operators SET $setValues WHERE name = ? AND reg_time = ?";
+            $this->sqlQuery = $this->connection->prepare($query);
 
-    //     $this->db_disconnect();
-    //     return $result;
-    // }
-    // function delete_where($dbName, $tableName, $field, $value)
-    // {
-    //     $this->db_connect();
-    //     $this->sqlQuery = $this->connection->prepare("DELETE FROM {$dbName}.{$tableName} WHERE {$field} = {$value};");
-    //     return $this->sqlQuery->execute();
-    //     $this->result = $this->sqlQuery->get_result();
-    //     $this->sqlQuery->close();
-    //     $this->db_disconnect();
-    // }
-    // function delete_where_and($dbName, $tableName, $dataset)
-    // {
-    //     $this->db_connect();
+            // Hozzáadjuk a `name` és `reg_time` mezők értékeit
+            $types .= "ss"; // Mindkettő string
+            $bindParams[] = $conditionName;
+            $bindParams[] = $conditionRegTime;
 
-    //     $whereClause = [];
-    //     $values = [];
+            // Bind paraméterek biztonságosan
+            $this->sqlQuery->bind_param($types, ...$bindParams);
 
-    //     foreach ($dataset as $field => $value) {
-    //         $whereClause[] = "{$field} = ?";
-    //         $values[] = $value;
-    //     }
+            if (!$this->sqlQuery->execute()) {
+                $this->sqlQuery->close();
+                $this->db_disconnect();
+            }
 
-    //     $whereSql = implode(" AND ", $whereClause);
-    //     $query = "DELETE FROM {$dbName}.{$tableName} WHERE {$whereSql}";
+            $this->sqlQuery->close();
+        }
 
-    //     $this->sqlQuery = $this->connection->prepare($query);
+        $this->db_disconnect();
+        return true;
+    }
 
-    //     $types = str_repeat("i", count($values));
-    //     $this->sqlQuery->bind_param($types, ...$values);
+    function delete_where($tableName, $field, $value)
+    {
+        $this->db_connect();
+        $this->sqlQuery = $this->connection->prepare("DELETE FROM {$tableName} WHERE {$field} = {$value};");
+        return $this->sqlQuery->execute();
+        $this->result = $this->sqlQuery->get_result();
+        $this->sqlQuery->close();
+        $this->db_disconnect();
+    }
+    function delete_operator($dataset)
+    {
+        $this->db_connect();
 
-    //     $result = $this->sqlQuery->execute();
-    //     $this->sqlQuery->close();
-    //     $this->db_disconnect();
+        $whereClause = [];
+        $values = [];
 
-    //     return $result;
-    // }
+        // WHERE feltételek létrehozása a kapott dataset alapján
+        foreach ($dataset as $condition) {
+
+            $field = $condition['field'];
+            $value = $condition['value'];
+
+            $whereClause[] = "{$field} = ?";
+            $values[] = $value;
+        }
+
+        // WHERE feltétel összeállítása
+        $whereSql = implode(" AND ", $whereClause);
+        $sql = "DELETE FROM operators WHERE {$whereSql}";
+
+        // SQL utasítás előkészítése
+        $this->sqlQuery = $this->connection->prepare($sql);
+
+        // Bind paraméterek beállítása
+        $types = str_repeat("s", count($values)); // Minden érték stringként kerül kezelésre
+        $this->sqlQuery->bind_param($types, ...$values);
+
+        // SQL utasítás végrehajtása
+        $result = $this->sqlQuery->execute();
+        $this->sqlQuery->close();
+
+        $this->db_disconnect();
+
+        return $result;
+    }
     function select_operators($field = "operator_id", $order = "ASC", $limit = null)
     {
         $this->db_connect();
 
-        $this->sqlQuery = file_get_contents($_SERVER["DOCUMENT_ROOT"] . "/core/sql/users.sql");
+        $this->sqlQuery = file_get_contents($_SERVER["DOCUMENT_ROOT"] . "/core/sql/operators.sql");
 
         $sqlParams = array(
             "{field}" => $field,
@@ -233,6 +253,44 @@ class MySql extends db_config
         } else {
             $this->sqlQuery = $this->connection->prepare($this->sqlQuery . ";");
         }
+
+        $this->sqlQuery->execute();
+        $this->result = $this->sqlQuery->get_result();
+        $this->sqlQuery->close();
+        if ($this->result->num_rows > 0) {
+            $i = 0;
+            while ($row = $this->result->fetch_assoc()) {
+                $this->dataSet[$i] = $row;
+                $i++;
+            }
+        }
+        $this->db_disconnect();
+        return $this->dataSet;
+    }
+    function select_stations()
+    {
+        $this->db_connect();
+
+        $this->sqlQuery = $this->connection->prepare(file_get_contents($_SERVER["DOCUMENT_ROOT"] . "/core/sql/stations.sql"));
+
+        $this->sqlQuery->execute();
+        $this->result = $this->sqlQuery->get_result();
+        $this->sqlQuery->close();
+        if ($this->result->num_rows > 0) {
+            $i = 0;
+            while ($row = $this->result->fetch_assoc()) {
+                $this->dataSet[$i] = $row;
+                $i++;
+            }
+        }
+        $this->db_disconnect();
+        return $this->dataSet;
+    }
+    function select_measurements()
+    {
+        $this->db_connect();
+
+        $this->sqlQuery = $this->connection->prepare(file_get_contents($_SERVER["DOCUMENT_ROOT"] . "/core/sql/measurements.sql"));
 
         $this->sqlQuery->execute();
         $this->result = $this->sqlQuery->get_result();

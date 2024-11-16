@@ -1,4 +1,5 @@
 SELECT
+    operator_id,
     email,
     username,
     name,

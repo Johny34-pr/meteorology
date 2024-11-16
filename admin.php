@@ -40,11 +40,11 @@ include("core/init.php");
                     <div class="col-lg-12">
                         <div class="row text-center justify-content-center pb-5">
                             <div class="col-sm-8 col-md-6 col-lg-3 p-4">
-                                <a href="/admin/felhasznalok">
+                                <a href="/admin/operatorok">
                                     <button class="btn btn-primary w-100 py-5">
                                         <i class="fs-3 fa-solid fa-user"></i>
                                         <br>
-                                        Felhasználók
+                                        Operátorok
                                     </button>
                                 </a>
                             </div>

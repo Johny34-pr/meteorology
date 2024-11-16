@@ -68,11 +68,11 @@ if ($_SESSION['loggedin']) {
                                 <thead>
                                     <tr>
                                         <th class="text-center">#</th>
-                                        <th class="text-center">Név</th>
-                                        <th class="text-center">E-mail cím</th>
-                                        <th class="text-center">Regisztráció ideje</th>
-                                        <th class="text-center">Rang</th>
-                                        <th class="text-center">Státusz</th>
+                                        <th class="text-center">Operátor</th>
+                                        <th class="text-center">Múszer</th>
+                                        <th class="text-center">Érték</th>
+                                        <th class="text-center">Idő</th>
+                                        <th class="text-center">Állomás</th>
                                         <th class="text-center">Módosítás</th>
                                     </tr>
                                 </thead>
@@ -132,8 +132,7 @@ if ($_SESSION['loggedin']) {
         <script type="text/javascript" src="/assets/js/theme-scripts.js"></script>
         <!-- theme-main.js-->
         <script type="text/javascript" src="/assets/js/theme-main.js"></script>
-        <script type="text/javascript" src="/assets/js/user-management.js"></script>
-        <script type="text/javascript" src="/assets/js/email.js"></script>
+        <script type="text/javascript" src="/assets/js/measurement-management.js"></script>
         <script type="text/javascript" src="/assets/js/classes.js"></script>
         <script type="text/javascript" src="/assets/js/pagination.js"></script>
         <script type="text/javascript" src="/assets/js/swalert.js"></script>

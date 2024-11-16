@@ -1,31 +1,23 @@
-class User {
+class Operator {
   // site-user
-  constructor(id, name, email, reg, rank, stat) { //User id, full name, email, registration date, rank, status
-    this.id = id;
+  constructor(name, email, station_name, reg_time) {
     this.name = name;
     this.email = email;
-    this.reg = reg;
-    this.rank = rank;
-    this.stat = stat;
+    this.station_name = station_name;
+    this.reg_time = reg_time;
   }
 }
 
-class Game {
-  //Organized game
+class Maasure {
+  //Measurement
 
-  constructor(id, name, location, tournament_type, play_it_by, group_count, player_count, apply_start, apply_end, game_day, game_type, comment = null) { //id, competition name, tournament type, play it by players, group number, player number in groups, apply start date, apply end date, game type, comment
-    this.id = id;
-    this.name = name;
-    this.location = location;
-    this.tournament_type = tournament_type;
-    this.play_it_by = play_it_by;
-    this.group_count = group_count;
-    this.player_count = player_count;
-    this.apply_start = apply_start;
-    this.apply_end = apply_end;
-    this.game_day = game_day;
-    this.game_type = game_type;
-    this.comment = comment;
+  constructor(operator, instrument, value, unit, timestamp, station) {
+    this.operator = operator;
+    this.instrument = instrument;
+    this.value = value;
+    this.unit = unit;
+    this.timestamp = timestamp;
+    this.station = station;
   }
 }
 

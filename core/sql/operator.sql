@@ -1,0 +1,1 @@
+UPDATE operators SET location_id = 3 WHERE name LIKE "Kincses István" AND reg_time LIKE "2024-11-15 21:27:24";

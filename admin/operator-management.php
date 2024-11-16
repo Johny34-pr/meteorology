@@ -56,10 +56,10 @@ if ($_SESSION['loggedin']) {
                 <div class="container paddings-mini">
                     <div class="row">
                         <div class="col-lg-5">
-                            <h3 class="clear-title">Felhasználókezelés</h3>
+                            <h3 class="clear-title">Operátorkezelés</h3>
                         </div>
                         <div class="col-lg-2 offset-lg-5">
-                            <a href="/admin/user-add" class="btn btn-primary" id="newUser"><i class='bx bxs-plus-circle'></i> <span>Új felhasználó</span></a>
+                            <a href="/admin" class="btn btn-secondary" id="newUser"><i class="fa-solid fa-house"></i><span> Főmenü</span></a>
                         </div>
                     </div>
                     <div class="row">
@@ -83,7 +83,7 @@ if ($_SESSION['loggedin']) {
                                     <b>
                                         <span id="showedRows"></span>
                                     </b>
-                                    felhasználó a(z)
+                                    operátor a(z)
                                     <b>
                                         <span id="allRows"></span>
                                     </b>-ből
@@ -131,9 +131,8 @@ if ($_SESSION['loggedin']) {
         <script type="text/javascript" src="/assets/js/theme-scripts.js"></script>
         <!-- theme-main.js-->
         <script type="text/javascript" src="/assets/js/theme-main.js"></script>
-        <script type="text/javascript" src="/assets/js/user-management.js"></script>
-        <script type="text/javascript" src="/assets/js/email.js"></script>
         <script type="text/javascript" src="/assets/js/classes.js"></script>
+        <script type="text/javascript" src="/assets/js/operator-management.js"></script>
         <script type="text/javascript" src="/assets/js/pagination.js"></script>
         <script type="text/javascript" src="/assets/js/swalert.js"></script>
         <!-- ======================= End JQuery libs =========================== -->
