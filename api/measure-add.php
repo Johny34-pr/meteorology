@@ -6,14 +6,18 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['token'] == "addMeasureByOper
     if ($_SESSION['loggedin'] && isset($_POST['measurement'])) {
         $measurement = $_POST['measurement'];
 
+        $location = $db->select_where("operators", "operator_id", $_SESSION["operator_id"], "location_id");
+        $measurement["location_id"] = $location[0]["location_id"];
+
+        unset($location);
+
         // Szűrés a nem null vagy üres értékekre
         $measurement = array_filter($measurement, function ($value) {
             return !is_null($value) && $value !== '';
-        });
+        }); 
 
         $renameMap = [
-            'instrument' => 'instrument_id',
-            'station' => 'location_id'
+            'instrument' => 'instrument_id'
         ];
         
         // Új tömb létrehozása az átnevezett kulcsokkal

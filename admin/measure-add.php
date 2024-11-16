@@ -4,8 +4,7 @@ include("../core/init.php");
 
 if ($_SESSION['loggedin']) {
 
-    $instruments = $db->listInstruments();
-    $stations = $db->select_stations();
+    $instruments = $db->listInstruments($_SESSION['operator_id']);
 
 ?>
     <!DOCTYPE html>
@@ -67,10 +66,12 @@ if ($_SESSION['loggedin']) {
                             <label for="instrument">Mérőeszköz</label>
                             <select class="form-control" name="instrument">
                                 <?php
-                                foreach ($instruments as $instrument) {
-                                    if ($instrument["status"] === "használatban") {
-                                        echo "<option value='{$instrument['instrument_id']}'>{$instrument['name']}</option>";
+                                if (isset($instruments) && !empty($instruments)) {
+                                    foreach ($instruments as $instrument) {
+                                        echo "<option value='{$instrument['instrument_id']}'>{$instrument['instrument_name']}</option>";
                                     }
+                                }else{
+                                    echo "<option>Nincs mérőműszer.</option>";
                                 }
                                 ?>
                             </select>
@@ -82,16 +83,6 @@ if ($_SESSION['loggedin']) {
                         <div class="col-lg-3">
                             <label for="unit">Mértékegység</label>
                             <input type="text" class="form-control" name="unit" id="">
-                        </div>
-                        <div class="col-lg-3">
-                            <label for="station">Mérőállomás</label>
-                            <select class="form-control" name="station">
-                                <?php
-                                foreach ($stations as $station) {
-                                    echo "<option value='{$station['location_id']}'>{$station['name']}</option>";
-                                }
-                                ?>
-                            </select>
                         </div>
                     </div>
                     <div class="row py-5 justify-content-center">

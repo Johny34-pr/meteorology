@@ -69,9 +69,8 @@ $(document).on('click', "#save", function(){
   let instrument = parseInt($("[name='instrument']").val(), 10);
   let value = parseInt($("[name='value']").val(), 10);
   let unit = $("[name='unit']").val();
-  let station = parseInt($("[name='station']").val(), 10);
 
-  let measurement = new Measure(null, instrument, null, value, unit, station);
+  let measurement = new Measure(null, instrument, null, value, unit, null);
 
   let request = $.ajax({
     url: "/api/measure-add.php",
@@ -83,6 +82,7 @@ $(document).on('click', "#save", function(){
   });
 
   request.done(function(res){
+    console.log(res);
     result = JSON.parse(res);
 
     swAlert(result["result"], result["log"]);
@@ -105,10 +105,7 @@ function loadMeasurements() {
   let request = $.ajax({
     url: "/api/measurements-select.php",
     method: "post",
-    data: {
-      token: "SelectAllMEasurementsFromDBOnAdminPg5345",
-      order: "ASC",
-    },
+    data: {},
   });
 
   request.done(function (result) {
@@ -164,6 +161,6 @@ function loadMeasurements() {
   });
 
   request.fail(function () {
-    swAlert("error", "A felhaszálók betöltése sikertelen.", 2000);
+    swAlert("error", "A mérések betöltése sikertelen.", 2000);
   });
 }

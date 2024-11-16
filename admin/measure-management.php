@@ -34,7 +34,7 @@ if ($_SESSION['loggedin']) {
                 <div class="container">
                     <div class="row">
                         <div class="col-md-8">
-                            <h1>Főoldal beállítások</h1>
+                            <h1>Admin</h1>
                         </div>
 
                         <div class="col-md-4">
@@ -56,7 +56,7 @@ if ($_SESSION['loggedin']) {
                 <div class="container paddings-mini">
                     <div class="row">
                         <div class="col-lg-5">
-                            <h3 class="clear-title">Felhasználókezelés</h3>
+                            <h3 class="clear-title">Mérések</h3>
                         </div>
                         <div class="col-lg-2 offset-lg-5">
                             <a href="/admin/meres-hozzaad" class="btn btn-primary" id="newMeasure"><i class='bx bxs-plus-circle'></i> <span>Új Mérés</span></a>

@@ -56,7 +56,7 @@ if ($_SESSION['loggedin']) {
                 <div class="container paddings-mini">
                     <div class="row">
                         <div class="col-lg-5">
-                            <h3 class="clear-title">Felhasználókezelés</h3>
+                            <h3 class="clear-title">Állomások</h3>
                         </div>
                         <div class="col-lg-2 offset-lg-5">
                             <a href="/admin/user-add" class="btn btn-primary" id="newUser"><i class='bx bxs-plus-circle'></i> <span>Új felhasználó</span></a>

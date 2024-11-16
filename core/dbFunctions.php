@@ -287,7 +287,6 @@ class MySql extends db_config
 
         return $result;
     }
-
     function select_operators($field = "operator_id", $order = "ASC", $limit = null)
     {
         $this->db_connect();
@@ -341,11 +340,19 @@ class MySql extends db_config
         $this->db_disconnect();
         return $this->dataSet;
     }
-    function listInstruments()
+    function listInstruments($operator = null)
     {
         $this->db_connect();
 
-        $this->sqlQuery = $this->connection->prepare(file_get_contents($_SERVER["DOCUMENT_ROOT"] . "/core/sql/instruments.sql"));
+        $this->sqlQuery = file_get_contents($_SERVER["DOCUMENT_ROOT"] . "/core/sql/instruments.sql");
+
+        if($operator === null){
+            $this->sqlQuery = str_replace("{operator_id}", "null", $this->sqlQuery);
+        }else{
+            $this->sqlQuery = str_replace("{operator_id}", $operator, $this->sqlQuery);
+        }
+
+        $this->sqlQuery = $this->connection->prepare($this->sqlQuery);
 
         $this->sqlQuery->execute();
         $this->result = $this->sqlQuery->get_result();
@@ -360,11 +367,20 @@ class MySql extends db_config
         $this->db_disconnect();
         return $this->dataSet;
     }
-    function select_measurements()
+    function listMeasurements($operator = null)
     {
         $this->db_connect();
 
-        $this->sqlQuery = $this->connection->prepare(file_get_contents($_SERVER["DOCUMENT_ROOT"] . "/core/sql/measurements.sql"));
+        $this->sqlQuery = file_get_contents($_SERVER["DOCUMENT_ROOT"] . "/core/sql/measurements.sql");
+
+        if($operator === null){
+            $this->sqlQuery = str_replace("{operator_id}", "null", $this->sqlQuery);
+        }else{
+            $this->sqlQuery = str_replace("{operator_id}", $operator, $this->sqlQuery);
+        }
+        
+
+        $this->sqlQuery = $this->connection->prepare($this->sqlQuery);
 
         $this->sqlQuery->execute();
         $this->result = $this->sqlQuery->get_result();

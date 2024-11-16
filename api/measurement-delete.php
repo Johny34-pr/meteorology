@@ -15,12 +15,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_SESSION['loggedin']) && $_PO
     $return = $db->delete_measurement($dataset);
 
     if ($return) {
-        $res = new response("success", "Operátor törölve.");
+        $res = new response("success", "Mérés törölve.");
     } else {
-        $res = new response("error", "Operátor törlése nem sikerült. :(");
+        $res = new response("error", "A mérés törlése nem sikerült. :(");
     }
 
     echo json_encode($res);
 } else {
-    $res = new response("error", "Nincs jogosultságod az operátor törléséhez.");
+    $res = new response("error", "Nincs jogosultságod a mérés törléséhez.");
 }
