@@ -69,7 +69,7 @@ if ($_SESSION['loggedin']) {
                                     <tr>
                                         <th class="text-center">#</th>
                                         <th class="text-center">Operátor</th>
-                                        <th class="text-center">Múszer</th>
+                                        <th class="text-center">Műszer</th>
                                         <th class="text-center">Érték</th>
                                         <th class="text-center">Idő</th>
                                         <th class="text-center">Állomás</th>

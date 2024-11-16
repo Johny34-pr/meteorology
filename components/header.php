@@ -11,8 +11,8 @@ $menu = [
         "submenu" => []
     ],
     [
-        "title" => "Hírek",
-        "ref" => "/hirek",
+        "title" => "Jelentések",
+        "ref" => "/jelentesek",
         "submenu" => []
     ],
 ];
