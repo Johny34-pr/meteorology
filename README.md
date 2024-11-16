@@ -4,7 +4,7 @@ Ez a meteorológiai mérési rendszer egy webalapú alkalmazás, amely lehetőv�
 
 ## Honlappal kapcsolatos elvárások
 
-- [X] Grafikai megjelenítés
+- [x] Grafikai megjelenítés
 - [x] Operátori rendszer
 - [x] Meteorológiai adatok rögzítése, törlése
 - [ ] Meteorológiai adatok lekérése, grafikonnal
