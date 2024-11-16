@@ -9,4 +9,4 @@ Ez a meteorológiai mérési rendszer egy webalapú alkalmazás, amely lehetőv�
 - [x] Meteorológiai adatok rögzítése, törlése
 - [ ] Meteorológiai adatok lekérése, grafikonnal
 ~~- [ ] Állomások törlése, hozzáadása~~
-~-~ [ ] Mérőeszközök módosítása, hozzáadása, törlése~~
+~~- [ ] Mérőeszközök módosítása, hozzáadása, törlése~~
