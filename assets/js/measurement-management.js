@@ -65,6 +65,40 @@ $(document).on("click", ".deleteMeasure", function () {
   });
 });
 
+$(document).on('click', "#save", function(){
+  let instrument = parseInt($("[name='instrument']").val(), 10);
+  let value = parseInt($("[name='value']").val(), 10);
+  let unit = $("[name='unit']").val();
+  let station = parseInt($("[name='station']").val(), 10);
+
+  let measurement = new Measure(null, instrument, null, value, unit, station);
+
+  let request = $.ajax({
+    url: "/api/measure-add.php",
+    method: "post",
+    data: {
+      token: "addMeasureByOperator7264",
+      measurement: measurement
+    }
+  });
+
+  request.done(function(res){
+    result = JSON.parse(res);
+
+    swAlert(result["result"], result["log"]);
+
+    if(result["result"] === "success"){
+      window.setInterval(function(){
+        window.location = "/admin/meresek";
+      }, 5000);
+    }
+  });
+
+  request.fail(function(){
+    swAlert("error", "Hiba a mérés rögzítése közben.");
+  });
+})
+
 function loadMeasurements() {
   $("#users-panel").empty();
   rowNumber = 0;

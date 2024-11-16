@@ -19,8 +19,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     if (empty($username_err) && empty($password_err)) {
         $user = $db->select_where("operators", "email", $email);
+        $user = $user[0];
         if ($user != NULL) {
             if (hash('sha256', $password) === $user['password']) {
+                $_SESSION['operator_id'] = $user['operator_id'];
                 $_SESSION['username'] = $user['username'];
                 $_SESSION['name'] = $user['name'];
                 $_SESSION['loggedin'] = true;

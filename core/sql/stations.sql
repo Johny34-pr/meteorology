@@ -1,4 +1,5 @@
 SELECT
+    location_id,
     station_name as name,
     city,
     county

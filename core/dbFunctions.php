@@ -341,6 +341,25 @@ class MySql extends db_config
         $this->db_disconnect();
         return $this->dataSet;
     }
+    function listInstruments()
+    {
+        $this->db_connect();
+
+        $this->sqlQuery = $this->connection->prepare(file_get_contents($_SERVER["DOCUMENT_ROOT"] . "/core/sql/instruments.sql"));
+
+        $this->sqlQuery->execute();
+        $this->result = $this->sqlQuery->get_result();
+        $this->sqlQuery->close();
+        if ($this->result->num_rows > 0) {
+            $i = 0;
+            while ($row = $this->result->fetch_assoc()) {
+                $this->dataSet[$i] = $row;
+                $i++;
+            }
+        }
+        $this->db_disconnect();
+        return $this->dataSet;
+    }
     function select_measurements()
     {
         $this->db_connect();
