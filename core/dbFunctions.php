@@ -233,6 +233,61 @@ class MySql extends db_config
 
         return $result;
     }
+    function delete_measurement($dataset)
+    {
+        $this->db_connect();
+
+        // WHERE feltételek és értékek létrehozása
+        $whereClause = [];
+        $values = [];
+
+        foreach ($dataset as $condition) {
+
+            $field = $condition['field'];
+            $value = $condition['value'];
+
+            // Feltételek hozzárendelése a megfelelő mezőkhöz
+            switch ($field) {
+                case 'operator':
+                    $whereClause[] = "o.name LIKE ?";
+                    break;
+                case 'instrument':
+                    $whereClause[] = "i.name LIKE ?";
+                    break;
+                case 'timestamp':
+                    $whereClause[] = "m.timestamp = ?";
+                    break;
+                default:
+                    throw new InvalidArgumentException("Unknown field: $field");
+            }
+
+            $values[] = $value;
+        }
+
+        // WHERE feltétel SQL szöveg
+        $whereSql = implode(" AND ", $whereClause);
+
+        // Teljes SQL lekérdezés összeállítása
+        $this->sqlQuery = file_get_contents($_SERVER["DOCUMENT_ROOT"] . "/core/sql/del_measure.sql");
+
+        $this->sqlQuery = str_replace("{whereSql}", $whereSql, $this->sqlQuery);
+
+        // SQL előkészítése
+        $this->sqlQuery = $this->connection->prepare($this->sqlQuery);
+
+        // Bind paraméterek beállítása
+        $types = str_repeat("s", count($values)); // Minden értéket stringként kezelünk
+        $this->sqlQuery->bind_param($types, ...$values);
+
+        // SQL végrehajtása
+        $result = $this->sqlQuery->execute();
+        $this->sqlQuery->close();
+
+        $this->db_disconnect();
+
+        return $result;
+    }
+
     function select_operators($field = "operator_id", $order = "ASC", $limit = null)
     {
         $this->db_connect();

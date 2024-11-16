@@ -32,18 +32,18 @@ $(document).on("click", ".page", function () {
 $(document).on("click", ".deleteMeasure", function () {
   let row = $(this).closest("tr");
 
-  let name = row.find("td:nth-child(2)").text().trim();
-  let email = row.find("td:nth-child(3)").text().trim();
-  let station = row.find("td:nth-child(4)").text().trim();
-  let regTime = row.find("td:nth-child(5)").text().trim();
+  let operator = row.find("td:nth-child(2)").text().trim();
+  let instrument = row.find("td:nth-child(3)").text().trim();
+  let timstamp = row.find("td:nth-child(5)").text().trim();
 
-  let operator = new Operator(name, email, station, regTime);
+  measurement = new Measure(operator, instrument, timstamp);
+
   let del = $.ajax({
-    url: "/api/operator-delete.php",
+    url: "/api/measurement-delete.php",
     type: "post",
     data: {
-      token: "DeleteOperatorFromSite4234",
-      operator: operator,
+      token: "DeleteMEasureFromSite21756",
+      measurement: measurement,
     },
   });
 
@@ -53,7 +53,7 @@ $(document).on("click", ".deleteMeasure", function () {
     swAlert(result["result"], result["log"]);
 
     if (result["result"] == "success") {
-      loadOperators();
+      loadMeasurements();
 
     } else {
       swAlert("error", "Hiba törlés közben.");
@@ -78,7 +78,6 @@ function loadMeasurements() {
   });
 
   request.done(function (result) {
-    console.log(result);
 
     let field = "";
 

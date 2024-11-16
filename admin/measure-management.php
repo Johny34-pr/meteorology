@@ -59,7 +59,7 @@ if ($_SESSION['loggedin']) {
                             <h3 class="clear-title">Felhasználókezelés</h3>
                         </div>
                         <div class="col-lg-2 offset-lg-5">
-                            <a href="/admin/user-add" class="btn btn-primary" id="newUser"><i class='bx bxs-plus-circle'></i> <span>Új felhasználó</span></a>
+                            <a href="/admin/meres-hozzaad" class="btn btn-primary" id="newMeasure"><i class='bx bxs-plus-circle'></i> <span>Új Mérés</span></a>
                         </div>
                     </div>
                     <div class="row">
@@ -84,7 +84,7 @@ if ($_SESSION['loggedin']) {
                                     <b>
                                         <span id="showedRows"></span>
                                     </b>
-                                    felhasználó a(z)
+                                    mérés a(z)
                                     <b>
                                         <span id="allRows"></span>
                                     </b>-ből
@@ -132,8 +132,8 @@ if ($_SESSION['loggedin']) {
         <script type="text/javascript" src="/assets/js/theme-scripts.js"></script>
         <!-- theme-main.js-->
         <script type="text/javascript" src="/assets/js/theme-main.js"></script>
-        <script type="text/javascript" src="/assets/js/measurement-management.js"></script>
         <script type="text/javascript" src="/assets/js/classes.js"></script>
+        <script type="text/javascript" src="/assets/js/measurement-management.js"></script>
         <script type="text/javascript" src="/assets/js/pagination.js"></script>
         <script type="text/javascript" src="/assets/js/swalert.js"></script>
         <!-- ======================= End JQuery libs =========================== -->

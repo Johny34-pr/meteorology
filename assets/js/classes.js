@@ -8,15 +8,15 @@ class Operator {
   }
 }
 
-class Maasure {
+class Measure {
   //Measurement
 
-  constructor(operator, instrument, value, unit, timestamp, station) {
+  constructor(operator, instrument, timestamp, value = null, unit = null, station = null) {
     this.operator = operator;
     this.instrument = instrument;
+    this.timestamp = timestamp;
     this.value = value;
     this.unit = unit;
-    this.timestamp = timestamp;
     this.station = station;
   }
 }
