@@ -129,7 +129,6 @@ class MySql extends db_config
         $this->db_disconnect();
         return true;
     }
-
     function delete_where($tableName, $field, $value)
     {
         $this->db_connect();

@@ -4,8 +4,6 @@ include("core/init.php");
 $report = $db->listMonthReport();
 $measureCount = $db->getMeasureCount();
 
-print_r($measureCount);
-
 ?>
 <!DOCTYPE html>
 <html lang="hu">
@@ -78,14 +76,6 @@ print_r($measureCount);
 
         <!-- Section Area - Content Central -->
         <section class="content-info pb-5">
-            <!-- Dark Home -->
-            <div class="dark-home">
-                <div class="container">
-
-                </div>
-            </div>
-            <!-- Dark Home -->
-
             <!-- Content Central -->
             <div class="container padding-top pb-5">
                 <div class="row justify-content-around">
@@ -155,10 +145,8 @@ print_r($measureCount);
                 </div>
             </div>
             <!-- End Content Central -->
-
         </section>
         <!-- End Section Area -  Content Central -->
-
         <!-- Footer -->
         <?php include "components/footer.php"; ?>
         <!-- End Footer -->
