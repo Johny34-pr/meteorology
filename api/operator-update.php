@@ -7,9 +7,9 @@ include $_SERVER["DOCUMENT_ROOT"] . "/core/init.php";
 if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_SESSION['loggedin']) && $_POST['token'] == "OperatorUpdateFromSite442538") {
     $operator = $_POST["operator"];
 
-    $location = $db->select_where("locations", "station_name", $operator["station_name"], "location_id");
-    $location_id = $location["location_id"];
-    unset($location);
+    // $location = $db->select_where("locations", "station_name", $operator["location_id"], "location_id");
+    // $location_id = $location["location_id"];
+    // unset($location);
 
     $operators = [
         [
@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_SESSION['loggedin']) && $_PO
             'updateFields' => [
                 'name' => $operator["name"],
                 'email' => $operator["email"],
-                'location_id' => $location_id
+                'location_id' => $operator["location_id"]
             ]
         ]
     ];

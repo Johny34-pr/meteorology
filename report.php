@@ -2,6 +2,9 @@
 include("core/init.php");
 
 $report = $db->listMonthReport();
+$measureCount = $db->getMeasureCount();
+
+print_r($measureCount);
 
 ?>
 <!DOCTYPE html>
@@ -85,28 +88,55 @@ $report = $db->listMonthReport();
 
             <!-- Content Central -->
             <div class="container padding-top pb-5">
-                <div class="row">
-                    <table class="table table-bordered table-striped">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th>Év</th>
-                                <th>Hónap</th>
-                                <th>Átlagos érték</th>
-                                <th>Mértékegység</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($report as $row): ?>
+                <div class="row justify-content-around">
+                    <div class="card m-5">
+                        <div class="text-center">
+                            <h1 class="p-2">Mérési számok</h1>
+                        </div>
+                        <table class="table table-bordered table-striped">
+                            <thead class="thead-dark">
                                 <tr>
-                                    <td><?= htmlspecialchars($row['year']) ?></td>
-                                    <td><?= htmlspecialchars($row['month']) ?></td>
-                                    <td><?= number_format($row['average_value'], 2) ?></td>
-                                    <td><?= htmlspecialchars($row['unit']) ?></td>
+                                    <th>Állomás</th>
+                                    <th>Mérések száma</th>
                                 </tr>
-                            <?php endforeach; ?>
-                        </tbody>
-                    </table>
-
+                            </thead>
+                            <tbody>
+                                <?php foreach ($measureCount as $row): ?>
+                                    <tr>
+                                        <td><?= htmlspecialchars($row['Station']) ?></td>
+                                        <td><?= htmlspecialchars($row['Measurement_Count']) ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card m-5">
+                        <div class="text-center">
+                            <h1 class="p-2">Mérési eredmények</h1>
+                        </div>
+                        <table class="table table-bordered table-striped">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>Év</th>
+                                    <th>Hónap</th>
+                                    <th>Átlagos érték</th>
+                                    <th>Mértékegység</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($report as $row): ?>
+                                    <tr>
+                                        <td><?= htmlspecialchars($row['year']) ?></td>
+                                        <td><?= htmlspecialchars($row['month']) ?></td>
+                                        <td><?= number_format($row['average_value'], 2) ?></td>
+                                        <td><?= htmlspecialchars($row['unit']) ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row">
                     <div class="container pt-5" style="width: 70%">
                         <div class="row justify-content-center">
                             <div class="col-6">
@@ -120,21 +150,8 @@ $report = $db->listMonthReport();
                                 </select>
                             </div>
                         </div>
-
                         <canvas class="container pt-5" id="dynamicChart"></canvas>
                     </div>
-                    <!-- content Column Left -->
-
-                    <!-- End content Left -->
-
-                    <!-- content Sidebar Center -->
-
-                    <!-- End content Sidebar Center -->
-
-                    <!-- content Sidebar Right -->
-
-                    <!-- End content Sidebar Right -->
-
                 </div>
             </div>
             <!-- End Content Central -->

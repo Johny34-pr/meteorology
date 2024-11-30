@@ -3,10 +3,10 @@ SELECT
     email,
     username,
     name,
-    station_name,
+    IF((station_name IS NULL), "", station_name) AS station,
     reg_time
 FROM
     `operators` o
-    INNER JOIN `locations` l ON l.location_id = o.location_id
+    LEFT JOIN `locations` l ON l.location_id = o.location_id
 ORDER BY
     {field} {order}

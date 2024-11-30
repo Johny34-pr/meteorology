@@ -97,22 +97,6 @@ if ($_SESSION['loggedin']) {
                     </div>
                 </div>
             </section>
-
-            <div class="modal" id="confirm" tabindex="-1">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h3 class="modal-title">Biztosan törlöd a kiválasztott felhasználót?</h3>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        </div>
-                        <div class="modal-body row justify-content-center">
-                            <div class="col-2">
-                                <button type="button" class="btn btn-danger" id="delete" data-bs-dismiss="modal">Törlés</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <!-- End Section Area -  Content Central -->
 
             <!-- Footer -->

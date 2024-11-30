@@ -26,64 +26,6 @@ class MySql extends db_config
         $this->sqlQuery = NULL;
         $this->result;
     }
-    // function select_all($tableName, $field = "id", $order = "ASC")
-    // {
-    //     $this->db_connect();
-    //     $this->sqlQuery = $this->connection->prepare("SELECT * FROM {$tableName} ORDER BY {$field} {$order};");
-    //     $this->sqlQuery->execute();
-    //     $this->result = $this->sqlQuery->get_result();
-    //     $this->sqlQuery->close();
-    //     if ($this->result->num_rows > 0) {
-    //         $i = 0;
-    //         while ($row = $this->result->fetch_assoc()) {
-    //             $this->dataSet[$i] = $row;
-    //             $i++;
-    //         }
-    //     }
-    //     $this->db_disconnect();
-    //     return $this->dataSet;
-    // }
-    // function select_all_where($dbName, $tableName, $condition, $value, $fields = "*", $field = "id", $order = "ASC")
-    // {
-    //     $this->db_connect();
-    //     $this->sqlQuery = $this->connection->prepare("SELECT {$fields} FROM {$dbName}.{$tableName} WHERE {$condition} = ? ORDER BY $field $order;");
-    //     $this->sqlQuery->bind_param('s', $value);
-    //     $this->sqlQuery->execute();
-    //     $this->result = $this->sqlQuery->get_result();
-    //     $this->sqlQuery->close();
-    //     if ($this->result->num_rows > 0) {
-    //         $i = 0;
-    //         while ($row = $this->result->fetch_assoc()) {
-    //             $this->dataSet[$i] = $row;
-    //             $i++;
-    //         }
-    //     }
-    //     $this->db_disconnect();
-    //     return $this->dataSet;
-    // }
-    // function select_all_order($tableName, $fields, $field = "id", $order = "ASC", $limit = null)
-    // {
-    //     $this->db_connect();
-    //     $field_value = "SELECT {$fields} FROM {$tableName} ORDER BY {$field} {$order}";
-    //     if ($limit != null) {
-    //         $this->sqlQuery = $this->connection->prepare($field_value . " LIMIT {$limit};");
-    //     } else {
-    //         $this->sqlQuery = $this->connection->prepare($field_value . ";");
-    //     }
-
-    //     $this->sqlQuery->execute();
-    //     $this->result = $this->sqlQuery->get_result();
-    //     $this->sqlQuery->close();
-    //     if ($this->result->num_rows > 0) {
-    //         $i = 0;
-    //         while ($row = $this->result->fetch_assoc()) {
-    //             $this->dataSet[$i] = $row;
-    //             $i++;
-    //         }
-    //     }
-    //     $this->db_disconnect();
-    //     return $this->dataSet;
-    // }
     function select_where($tableName, $condition, $value, $fields = "*")
     {
         $this->db_connect();
@@ -379,6 +321,27 @@ class MySql extends db_config
             $this->sqlQuery = str_replace("{operator_id}", $operator, $this->sqlQuery);
         }
         
+
+        $this->sqlQuery = $this->connection->prepare($this->sqlQuery);
+
+        $this->sqlQuery->execute();
+        $this->result = $this->sqlQuery->get_result();
+        $this->sqlQuery->close();
+        if ($this->result->num_rows > 0) {
+            $i = 0;
+            while ($row = $this->result->fetch_assoc()) {
+                $this->dataSet[$i] = $row;
+                $i++;
+            }
+        }
+        $this->db_disconnect();
+        return $this->dataSet;
+    }
+    function getMeasureCount()
+    {
+        $this->db_connect();
+
+        $this->sqlQuery = file_get_contents($_SERVER["DOCUMENT_ROOT"] . "/core/sql/measure_count.sql");
 
         $this->sqlQuery = $this->connection->prepare($this->sqlQuery);
 

@@ -108,7 +108,7 @@ $(document).on("click", ".userEdit", function () {
       field_value = "<select class='form-control' id='station'>";
 
       result["dataset"].forEach((station) => {
-        field_value += "<option value='" + station["name"] + "'";
+        field_value += "<option value='" + station["location_id"] + "'";
 
         if (station["name"] === operator.station_name) {
           field_value += "selected ";
@@ -203,7 +203,7 @@ function loadOperators() {
             "</a></td><td>" +
             result["dataset"][j]["email"] +
             "</td><td>" +
-            result["dataset"][j]["station_name"] +
+            result["dataset"][j]["station"] +
             "</td><td>" +
             result["dataset"][j]["reg_time"] +
             "</td><td class='text-center'><span class='settings userEdit' title='Módosítás' data-toggle='tooltip'><i class='fa-solid fa-pen-to-square'></i></span><span class='deleteOperator' title='Törlés' data-toggle='tooltip'><i class='fa-regular fa-circle-xmark'></i></span></td></tr>";
