@@ -3,6 +3,7 @@ include("core/init.php");
 
 $report = $db->listMonthReport();
 $measureCount = $db->getMeasureCount();
+$instruments = $db->listInstrumentsStation();
 
 ?>
 <!DOCTYPE html>
@@ -91,12 +92,13 @@ $measureCount = $db->getMeasureCount();
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($measureCount as $row): ?>
+                                <?php if($measureCount){
+                                    foreach ($measureCount as $row): ?>
                                     <tr>
                                         <td><?= htmlspecialchars($row['Station']) ?></td>
                                         <td><?= htmlspecialchars($row['Measurement_Count']) ?></td>
                                     </tr>
-                                <?php endforeach; ?>
+                                <?php endforeach;}else{echo "<td colspan='2'>Nincs a lekérésnek megfelelő adat.</td>";} ?>
                             </tbody>
                         </table>
                     </div>
@@ -114,12 +116,34 @@ $measureCount = $db->getMeasureCount();
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($report as $row): ?>
+                                <?php if($report){
+                                    foreach ($report as $row): ?>
                                     <tr>
                                         <td><?= htmlspecialchars($row['year']) ?></td>
                                         <td><?= htmlspecialchars($row['month']) ?></td>
                                         <td><?= number_format($row['average_value'], 2) ?></td>
                                         <td><?= htmlspecialchars($row['unit']) ?></td>
+                                    </tr>
+                                <?php endforeach;}else{echo "<td colspan='4'>Nincs a az időszaknak megfelelő adat.</td>";} ?>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card m-5">
+                        <div class="text-center">
+                            <h1 class="p-2">Aktív mérőműszerek száma</h1>
+                        </div>
+                        <table class="table table-bordered table-striped">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>Állomás</th>
+                                    <th>Müszerek</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($instruments as $row): ?>
+                                    <tr>
+                                        <td><?= htmlspecialchars($row['station']) ?></td>
+                                        <td><?= htmlspecialchars($row['instruments_count']) ?></td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>

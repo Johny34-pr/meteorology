@@ -336,6 +336,27 @@ class MySql extends db_config
         $this->db_disconnect();
         return $this->dataSet;
     }
+    function listInstrumentsStation()
+    {
+        $this->db_connect();
+
+        $this->sqlQuery = file_get_contents($_SERVER["DOCUMENT_ROOT"] . "/core/sql/instruments_per_station.sql");
+
+        $this->sqlQuery = $this->connection->prepare($this->sqlQuery);
+
+        $this->sqlQuery->execute();
+        $this->result = $this->sqlQuery->get_result();
+        $this->sqlQuery->close();
+        if ($this->result->num_rows > 0) {
+            $i = 0;
+            while ($row = $this->result->fetch_assoc()) {
+                $this->dataSet[$i] = $row;
+                $i++;
+            }
+        }
+        $this->db_disconnect();
+        return $this->dataSet;
+    }
     function getMeasureCount()
     {
         $this->db_connect();
